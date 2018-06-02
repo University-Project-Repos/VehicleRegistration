@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0"
+            prefWidth="600.0"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="WoF.controller.gui.VehicleGUI">
+
+    <children>
+        <Label layoutX="151.0"
+               layoutY="22.0"
+               text="WoF Vehicle Registration">
+            <font>
+                <Font size="27.0" />
+            </font>
+        </Label>
+        <Label layoutX="55.0"
+               layoutY="88.0"
+               text="Plate">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font></Label>
+        <TextField fx:id="plateTextField"
+                   alignment="CENTER"
+                   layoutX="55.0"
+                   layoutY="106.0"
+                   prefHeight="25.0"
+                   prefWidth="228.0"
+                   stylesheets="@../style/toggleValidation.css"
+                   promptText="Plate" />
+        <Button fx:id="savePlateButton"
+                disable="true"
+                layoutX="242.0"
+                layoutY="106.0"
+                mnemonicParsing="false"
+                text="Save"
+                visible="false" />
+        <Label layoutX="54.0"
+               layoutY="150.0"
+               text="Make">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font></Label>
+        <TextField fx:id="makeTextField"
+                   alignment="CENTER"
+                   layoutX="55.0"
+                   layoutY="169.0"
+                   prefHeight="25.0"
+                   prefWidth="228.0"
+                   stylesheets="@../style/toggleValidation.css"
+                   promptText="Make" />
+        <Button fx:id="saveMakeButton"
+                disable="true"
+                layoutX="242.0"
+                layoutY="169.0"
+                mnemonicParsing="false"
+                onAction="#makeEdit"
+                text="Save"
+                visible="false" />
+        <Label layoutX="53.0"
+               layoutY="213.0"
+               text="Model">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font></Label>
+        <TextField fx:id="modelTextField"
+                   alignment="CENTER"
+                   layoutX="55.0"
+                   layoutY="227.0"
+                   prefHeight="25.0"
+                   prefWidth="228.0"
+                   stylesheets="@../style/toggleValidation.css"
+                   promptText="Model" />
+        <Button fx:id="saveModelButton"
+                disable="true"
+                layoutX="242.0"
+                layoutY="227.0"
+                mnemonicParsing="false"
+                onAction="#modelEdit"
+                text="Save"
+                visible="false" />
+        <Label layoutX="53.0"
+               layoutY="271.0"
+               text="Manufacture date">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font></Label>
+        <DatePicker fx:id="manufactureDatePicker"
+                    layoutX="55.0"
+                    layoutY="287.0"
+                    prefHeight="25.0"
+                    prefWidth="228.0"
+                    stylesheets="@../style/toggleValidation.css"/>
+        <Button fx:id="saveManufactureDateButton"
+                disable="true"
+                layoutX="242.0"
+                layoutY="287.0"
+                mnemonicParsing="false"
+                onAction="#manufactureDateEdit"
+                text="Save"
+                visible="false" />
+        <Label layoutX="319.0"
+               layoutY="88.0"
+               text="Address Line One">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font></Label>
+        <TextField fx:id="addressLineOneField"
+                   alignment="CENTER"
+                   layoutX="319.0"
+                   layoutY="106.0"
+                   prefHeight="25.0"
+                   prefWidth="228.0"
+                   stylesheets="@../style/toggleValidation.css"
+                   promptText="Address Line One" />
+        <Button fx:id="saveAddressLineOneButton"
+                disable="true"
+                layoutX="505.0"
+                layoutY="106.0"
+                mnemonicParsing="false"
+                onAction="#addressLineOneFieldEdit"
+                text="Save"
+                visible="false" />
+        <Label layoutX="318.0"
+               layoutY="150.0"
+               text="Address Line Two">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font>
+        </Label>
+        <TextField fx:id="addressLineTwoField"
+                   alignment="CENTER"
+                   layoutX="319.0"
+                   layoutY="169.0"
+                   prefHeight="25.0"
+                   prefWidth="228.0"
+                   stylesheets="@../style/toggleValidation.css"
+                   promptText="Address Line Two" />
+        <Button fx:id="saveAddressLineTwoButton"
+                disable="true"
+                layoutX="505.0"
+                layoutY="169.0"
+                mnemonicParsing="false"
+                onAction="#addressLineTwoFieldEdit"
+                text="Save"
+                visible="false" />
+        <Label layoutX="319.0"
+               layoutY="213.0"
+               text="Vehicle Type">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font>
+        </Label>
+        <ChoiceBox fx:id="vehicleTypeChoiceBox"
+                   layoutX="319.0"
+                   layoutY="227.0"
+                   prefHeight="25.0"
+                   prefWidth="228.0"
+                   stylesheets="@../style/toggleValidation.css"/>
+        <Button fx:id="saveVehicleTypeButton"
+                disable="true"
+                layoutX="505.0"
+                layoutY="227.0"
+                mnemonicParsing="false"
+                onAction="#vehicleTypeEdit"
+                text="Save"
+                visible="false" />
+        <Label layoutX="318.0"
+               layoutY="271.0"
+               text="Fuel Type">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font>
+        </Label>
+        <ChoiceBox fx:id="fuelTypeChoiceBox"
+                   layoutX="319.0"
+                   layoutY="287.0"
+                   prefHeight="25.0"
+                   prefWidth="228.0"
+                   stylesheets="@../style/toggleValidation.css"/>
+        <Button fx:id="saveFuelTypeButton"
+                disable="true"
+                layoutX="505.0"
+                layoutY="287.0"
+                mnemonicParsing="false"
+                onAction="#fuelTypeEdit"
+                text="Save"
+                visible="false" />
+        <Button fx:id="vehicleRegisterButton"
+                disable="true"
+                layoutX="442.0"
+                layoutY="350.0"
+                mnemonicParsing="false"
+                onAction="#registerVehicle"
+                text="Register Vehicle"
+                visible="false" />
+        <Button fx:id="historyRegisterButton"
+                disable="true"
+                layoutX="442.0"
+                layoutY="350.0"
+                mnemonicParsing="false"
+                onAction="#registerHistory"
+                text="Register History"
+                visible="false" />
+        <Button fx:id="historyEditButton"
+                disable="true"
+                layoutX="470.0"
+                layoutY="350.0"
+                mnemonicParsing="false"
+                onAction="#registerHistory"
+                text="Edit History"
+                visible="false" />
+        <Button fx:id="removeVehicleButton"
+                disable="true"
+                layoutX="55.0"
+                layoutY="350.0"
+                mnemonicParsing="false"
+                onAction="#removeVehicle"
+                text="Remove Vehicle"
+                visible="false" />
+        <Button layoutX="492.0"
+                layoutY="29.0"
+                mnemonicParsing="false"
+                onAction="#logoutOwner"
+                text="Logout" />
+        <Button layoutX="55.0"
+                layoutY="29.0"
+                mnemonicParsing="false"
+                onAction="#goHome"
+                text="Back" />
+    </children>
+
+</AnchorPane>
+

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0"
+            prefWidth="600.0"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="WoF.controller.gui.OwnerGUI">
+    <children>
+        <Label layoutX="158.0"
+               layoutY="22.0"
+               text="WoF Registration Home">
+            <font>
+                <Font size="27.0" />
+            </font>
+        </Label>
+        <ListView fx:id="vehicleList"
+                  layoutX="358.0"
+                  layoutY="100.0"
+                  prefHeight="227.0"
+                  prefWidth="186.0" />
+        <Label layoutX="382.0"
+               layoutY="78.0"
+               text="Registered Vehicle(s)">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="55.0"
+               layoutY="82.0"
+               text="Forename">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font></Label>
+        <Label fx:id="forenameLabel"
+               layoutX="55.0"
+               layoutY="100.0"
+               maxWidth="230"
+               text="Forename">
+            <font>
+                <Font size="16.0" />
+            </font></Label>
+        <TextField fx:id="forenameTextField"
+                   alignment="CENTER"
+                   layoutX="55.0"
+                   layoutY="100.0"
+                   prefHeight="25.0"
+                   prefWidth="193.0"
+                   stylesheets="@../style/toggleValidation.css"
+                   promptText="Forename" />
+        <Button fx:id="editForenameButton"
+                layoutX="256.0"
+                layoutY="100.0"
+                mnemonicParsing="false"
+                onAction="#editForename"
+                text="Edit" />
+        <Button fx:id="saveForenameButton"
+                layoutX="254.0"
+                layoutY="100.0"
+                mnemonicParsing="false"
+                onAction="#saveForenameEdit"
+                text="Save" />
+        <Button fx:id="cancelForenameButton"
+                layoutX="299.0"
+                layoutY="100.0"
+                mnemonicParsing="false"
+                onAction="#cancelForenameEdit"
+                text="Cancel" />
+        <Label layoutX="55.0"
+               layoutY="132.0"
+               text="Surname">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font></Label>
+        <Label fx:id="surnameLabel"
+               layoutX="55.0"
+               layoutY="150.0"
+               maxWidth="230"
+               text="Surname">
+            <font>
+                <Font size="16.0" />
+            </font></Label>
+        <TextField fx:id="surnameTextField"
+                   alignment="CENTER"
+                   layoutX="55.0"
+                   layoutY="150.0"
+                   prefHeight="25.0"
+                   prefWidth="193.0"
+                   stylesheets="@../style/toggleValidation.css"
+                   promptText="Surname" />
+        <Button fx:id="editSurnameButton"
+                layoutX="256.0"
+                layoutY="150.0"
+                mnemonicParsing="false"
+                onAction="#editSurname"
+                text="Edit" />
+        <Button fx:id="saveSurnameButton"
+                layoutX="254.0"
+                layoutY="150.0"
+                mnemonicParsing="false"
+                onAction="#saveSurnameEdit"
+                text="Save" />
+        <Button fx:id="cancelSurnameButton"
+                layoutX="299.0"
+                layoutY="150.0"
+                mnemonicParsing="false"
+                onAction="#cancelSurnameEdit"
+                text="Cancel" />
+        <Label layoutX="55.0"
+               layoutY="182.0"
+               text="Address Line One">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font></Label>
+        <Label fx:id="addressLabelOne"
+               layoutX="55.0"
+               layoutY="200.0"
+               maxWidth="230"
+               text="Address Line One">
+            <font>
+                <Font size="16.0" />
+            </font></Label>
+        <TextField fx:id="addressTextFieldOne"
+                   alignment="CENTER"
+                   layoutX="55.0"
+                   layoutY="200.0"
+                   prefHeight="25.0"
+                   prefWidth="193.0"
+                   stylesheets="@../style/toggleValidation.css"
+                   promptText="Address Line One" />
+        <Button fx:id="editAddressLineOneButton"
+                layoutX="256.0" layoutY="200.0"
+                mnemonicParsing="false"
+                onAction="#editAddressLineOne"
+                text="Edit" />
+        <Button fx:id="saveAddressLineOneButton"
+                layoutX="254.0"
+                layoutY="200.0"
+                mnemonicParsing="false"
+                onAction="#saveAddressLineOneEdit"
+                text="Save" />
+        <Button fx:id="cancelAddressLineOneButton"
+                layoutX="299.0"
+                layoutY="200.0"
+                mnemonicParsing="false"
+                onAction="#cancelAddressLineOneEdit"
+                text="Cancel" />
+        <Label layoutX="55.0"
+               layoutY="232.0"
+               text="Address Line Two">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font></Label>
+        <Label fx:id="addressLabelTwo"
+               layoutX="55.0"
+               layoutY="250.0"
+               maxWidth="230"
+               text="Address Line Two">
+            <font>
+                <Font size="16.0" />
+            </font></Label>
+        <TextField fx:id="addressTextFieldTwo"
+                   alignment="CENTER"
+                   layoutX="55.0"
+                   layoutY="250.0"
+                   prefHeight="25.0"
+                   prefWidth="193.0"
+                   stylesheets="@../style/toggleValidation.css"
+                   promptText="Address Line Two" />
+        <Button fx:id="editAddressLineTwoButton"
+                layoutX="256.0"
+                layoutY="250.0"
+                mnemonicParsing="false"
+                onAction="#editAddressLineTwo"
+                text="Edit" />
+        <Button fx:id="saveAddressLineTwoButton"
+                layoutX="254.0"
+                layoutY="250.0"
+                mnemonicParsing="false"
+                onAction="#saveAddressLineTwoEdit"
+                text="Save" />
+        <Button fx:id="cancelAddressLineTwoButton"
+                layoutX="299.0"
+                layoutY="250.0"
+                mnemonicParsing="false"
+                onAction="#cancelAddressLineTwoEdit"
+                text="Cancel" />
+        <Label layoutX="55.0"
+               layoutY="282.0"
+               text="Phone">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font></Label>
+        <Label fx:id="phoneLabel"
+               layoutX="55.0"
+               layoutY="300.0"
+               maxWidth="230"
+               text="Phone">
+            <font>
+                <Font size="16.0" />
+            </font></Label>
+        <TextField fx:id="phoneTextField"
+                   alignment="CENTER"
+                   layoutX="55.0"
+                   layoutY="300.0"
+                   prefHeight="25.0"
+                   prefWidth="193.0"
+                   stylesheets="@../style/toggleValidation.css"
+                   promptText="Phone" />
+        <Button fx:id="editPhoneButton"
+                layoutX="256.0"
+                layoutY="300.0"
+                mnemonicParsing="false"
+                onAction="#editPhone"
+                text="Edit" />
+        <Button fx:id="savePhoneButton"
+                layoutX="254.0"
+                layoutY="300.0"
+                mnemonicParsing="false"
+                onAction="#savePhoneEdit"
+                text="Save" />
+        <Button fx:id="cancelPhoneButton"
+                layoutX="300.0"
+                layoutY="300.0"
+                mnemonicParsing="false"
+                onAction="#cancelPhoneEdit"
+                text="Cancel" />
+        <Button layoutX="442.0"
+                layoutY="350.0"
+                mnemonicParsing="false"
+                onAction="#registerVehicle"
+                text="Register Vehicle" />
+        <Button layoutX="55.0"
+                layoutY="350.0"
+                mnemonicParsing="false"
+                onAction="#removeProfile"
+                text="Remove Profile" />
+        <Button layoutX="155.0"
+                layoutY="350.0"
+                mnemonicParsing="false"
+                onAction="#updatePassword"
+                text="Change Password" />
+        <Button layoutX="493.0"
+                layoutY="29.0"
+                mnemonicParsing="false"
+                onAction="#logoutOwner"
+                text="Logout" />
+        <Button fx:id="editVehicleButton"
+                layoutX="358.0"
+                layoutY="350.0"
+                mnemonicParsing="false"
+                onAction="#editVehicle"
+                text="Edit Vehicle" />
+        <Button disable="true"
+                layoutX="54.0"
+                layoutY="29.0"
+                mnemonicParsing="false"
+                text="Book WoF" />
+    </children>
+</AnchorPane>

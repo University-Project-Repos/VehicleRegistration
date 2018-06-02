@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0"
+            prefWidth="600.0"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="WoF.controller.gui.HistoryGUI">
+
+    <children>
+        <Label layoutX="180.0"
+               layoutY="22.0"
+               text="WoF Vehicle History">
+            <font>
+                <Font size="27.0" />
+            </font>
+        </Label>
+        <Label layoutX="55.0"
+               layoutY="88.0"
+               text="VIN">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font></Label>
+        <TextField fx:id="vinTextField"
+                   alignment="CENTER"
+                   layoutX="55.0"
+                   layoutY="106.0"
+                   prefHeight="25.0"
+                   prefWidth="228.0"
+                   stylesheets="@../style/toggleValidation.css"
+                   promptText="VIN" />
+        <Button fx:id="saveVinButton"
+                disable="true"
+                layoutX="242.0"
+                layoutY="106.0"
+                mnemonicParsing="false"
+                text="Save"
+                visible="false" />
+        <Label layoutX="55.0"
+               layoutY="175.0"
+               text="Plate">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font></Label>
+        <TextField fx:id="plateTextField"
+                   alignment="CENTER"
+                   disable="true"
+                   editable="false"
+                   layoutX="55.0"
+                   layoutY="194.0"
+                   prefHeight="25.0"
+                   prefWidth="228.0"
+                   stylesheets="@../style/toggleValidation.css"
+                   promptText="Plate" />
+        <Button fx:id="savePlateButton"
+                disable="true"
+                layoutX="242.0"
+                layoutY="194.0"
+                mnemonicParsing="false"
+                text="Save"
+                visible="false" />
+        <Label layoutX="54.0"
+               layoutY="271.0"
+               text="Odometer reading (1000 km)">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font></Label>
+        <TextField fx:id="odometerReadingTextField"
+                   alignment="CENTER"
+                   layoutX="55.0"
+                   layoutY="287.0"
+                   prefHeight="25.0"
+                   prefWidth="228.0"
+                   stylesheets="@../style/toggleValidation.css"
+                   promptText="Odometer Reading" />
+        <Button fx:id="saveOdometerReadingButton"
+                disable="true"
+                layoutX="242.0"
+                layoutY="287.0"
+                mnemonicParsing="false"
+                onAction="#odometerReadingEdit"
+                text="Save"
+                visible="false" />
+        <Label layoutX="319.0"
+               layoutY="88.0"
+               text="NZ Registration Date">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font></Label>
+        <DatePicker fx:id="registrationDatePicker"
+                    layoutX="319.0"
+                    layoutY="106.0"
+                    prefHeight="25.0"
+                    stylesheets="@../style/toggleValidation.css"
+                    prefWidth="228.0" />
+        <Button fx:id="saveRegistrationDateButton"
+                disable="true"
+                layoutX="505.0"
+                layoutY="106.0"
+                mnemonicParsing="false"
+                onAction="#registrationDateEdit"
+                text="Save"
+                visible="false" />
+        <Label layoutX="319.0"
+               layoutY="175.0"
+               text="WoF Expiry">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="wofExpiryDatePicker"
+                    layoutX="319.0"
+                    layoutY="194.0"
+                    prefHeight="25.0"
+                    stylesheets="@../style/toggleValidation.css"
+                    prefWidth="228.0" />
+        <Button fx:id="saveWofExpiryDateButton"
+                disable="true"
+                layoutX="505.0"
+                layoutY="194.0"
+                mnemonicParsing="false"
+                onAction="#wofExpiryDateEdit"
+                text="Save"
+                visible="false" />
+        <Label layoutX="318.0"
+               layoutY="271.0"
+               text="WoF Status">
+            <font>
+                <Font name="Calibri Light Italic"
+                      size="10.0" />
+            </font>
+        </Label>
+        <ChoiceBox fx:id="wofStatusChoiceBox"
+                   layoutX="319.0"
+                   layoutY="287.0"
+                   prefHeight="25.0"
+                   prefWidth="228.0"
+                   stylesheets="@../style/toggleValidation.css"/>
+        <Button fx:id="saveWofStatusButton"
+                disable="true"
+                layoutX="505.0"
+                layoutY="287.0"
+                mnemonicParsing="false"
+                onAction="#wofStatusEdit"
+                text="Save"
+                visible="false" />
+        <Button fx:id="historyRegisterButton"
+                disable="true"
+                layoutX="442.0"
+                layoutY="350.0"
+                mnemonicParsing="false"
+                onAction="#registerHistory"
+                text="Register History"
+                visible="false" />
+        <Button layoutX="492.0"
+                layoutY="29.0"
+                mnemonicParsing="false"
+                onAction="#logoutOwner"
+                text="Logout" />
+        <Button layoutX="55.0"
+                layoutY="29.0"
+                mnemonicParsing="false"
+                onAction="#goBackToVehicle"
+                text="Back" />
+    </children>
+
+</AnchorPane>
