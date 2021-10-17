@@ -4,9 +4,14 @@ import WoF.controller.cli.UserCLITest;
 import WoF.model.Owner;
 import WoF.model.Session;
 import WoF.service.DatabaseTest;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+import java.io.FileNotFoundException;
+import java.sql.SQLException;
 
 /**
  * Acceptance testing for WoF app owner registration
@@ -17,6 +22,16 @@ public class OwnerTestSteps {
     private final Session wof = Session.getWoF();
     private final DatabaseTest db = new DatabaseTest();
     private final UserCLITest userTest = new UserCLITest();
+
+    @Before
+    public void setUp() throws SQLException, FileNotFoundException {
+        db.setUp();
+    }
+
+    @After
+    public void tearDown() throws SQLException {
+        db.tearDown();
+    }
 
     /**
      * Check if there is a current database connection

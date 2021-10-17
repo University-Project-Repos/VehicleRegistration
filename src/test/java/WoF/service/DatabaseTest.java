@@ -190,22 +190,14 @@ public class DatabaseTest {
      * @throws SQLException if any error occurred regarding the database
      */
     public void vehicleIsInDatabase() throws SQLException {
-        assertEquals(wof.getVehicle().getPlate(), wof.getDatabase().getVehicleInfo(wof.getVehicle().getPlate()).
-                getString(DatabaseEnum.PLATE.getValue()));
-        assertEquals(wof.getVehicle().getMake(), wof.getDatabase().getVehicleInfo(wof.getVehicle().getPlate()).
-                getString(DatabaseEnum.MAKE.getValue()));
-        assertEquals(wof.getVehicle().getModel(), wof.getDatabase().getVehicleInfo(wof.getVehicle().getPlate()).
-                getString(DatabaseEnum.MODEL.getValue()));
-        assertEquals(wof.getVehicle().getManufactureDate(), wof.getDatabase().getVehicleInfo(wof.getVehicle().getPlate()).
-                getTimestamp(DatabaseEnum.MANUFACTURE_DATE.getValue()));
-        assertEquals(wof.getVehicle().getAddressLineOne(), wof.getDatabase().getVehicleInfo(wof.getVehicle().getPlate()).
-                getString(DatabaseEnum.ADDRESS_LINE_ONE.getValue()));
-        assertEquals(wof.getVehicle().getAddressLineTwo(), wof.getDatabase().getVehicleInfo(wof.getVehicle().getPlate()).
-                getString(DatabaseEnum.ADDRESS_LINE_TWO.getValue()));
-        assertEquals(wof.getVehicle().getVehicleType().getValue(), wof.getDatabase().
-                getVehicleInfo(wof.getVehicle().getPlate()).getString(DatabaseEnum.VEHICLE_TYPE.getValue()));
-        assertEquals(wof.getVehicle().getFuelType().getValue(), wof.getDatabase().
-                getVehicleInfo(wof.getVehicle().getPlate()).getString(DatabaseEnum.FUEL_TYPE.getValue()));
+        assertEquals(wof.getVehicle().getPlate(), wof.getDatabase().getVehicleInfo(wof.getVehicle().getPlate()).getString(DatabaseEnum.PLATE.getValue()));
+        assertEquals(wof.getVehicle().getMake(), wof.getDatabase().getVehicleInfo(wof.getVehicle().getPlate()).getString(DatabaseEnum.MAKE.getValue()));
+        assertEquals(wof.getVehicle().getModel(), wof.getDatabase().getVehicleInfo(wof.getVehicle().getPlate()).getString(DatabaseEnum.MODEL.getValue()));
+        assertEquals(wof.getVehicle().getManufactureDate(), wof.getDatabase().getVehicleInfo(wof.getVehicle().getPlate()).getTimestamp(DatabaseEnum.MANUFACTURE_DATE.getValue()));
+        assertEquals(wof.getVehicle().getAddressLineOne(), wof.getDatabase().getVehicleInfo(wof.getVehicle().getPlate()).getString(DatabaseEnum.ADDRESS_LINE_ONE.getValue()));
+        assertEquals(wof.getVehicle().getAddressLineTwo(), wof.getDatabase().getVehicleInfo(wof.getVehicle().getPlate()).getString(DatabaseEnum.ADDRESS_LINE_TWO.getValue()));
+        assertEquals(wof.getVehicle().getVehicleType().getValue(), wof.getDatabase().getVehicleInfo(wof.getVehicle().getPlate()).getString(DatabaseEnum.VEHICLE_TYPE.getValue()));
+        assertEquals(wof.getVehicle().getFuelType().getValue(), wof.getDatabase().getVehicleInfo(wof.getVehicle().getPlate()).getString(DatabaseEnum.FUEL_TYPE.getValue()));
     }
 
     /**
@@ -225,7 +217,7 @@ public class DatabaseTest {
     public void getVehicleInfo() throws SQLException {
         assertNull(wof.getDatabase().getVehicleInfo("XYZ890"));
         wof.setVehicle(new VehicleMA(new LinkedList<>(Arrays.asList("ABC123", "FORD", "MODEL T",
-                Timestamp.valueOf(LocalDate.parse("1970-01-01").atTime(12, 0)),
+                Timestamp.valueOf(LocalDate.parse("1970-01-01").atTime(1, 0)),
                 "MICHIGAN", "USA", "MA", "OTHER"))));
         vehicleIsInDatabase();
     }
@@ -238,6 +230,7 @@ public class DatabaseTest {
      public void setVehicle(String plate) throws SQLException {
          wof.getUser().getVehicles().clear();
          wof.getDatabase().getVehicles();
+         System.out.println();
          for (Vehicle v : wof.getUser().getVehicles()) {
              if (v.getPlate().equals(plate.toUpperCase())) {
                  wof.setVehicle(v);

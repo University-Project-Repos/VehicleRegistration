@@ -1,19 +1,18 @@
 import WoF.model.Session;
-import cucumber.api.CucumberOptions;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-import cucumber.api.junit.Cucumber;
-import cucumber.api.SnippetType;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "features",
-        format = { "pretty",
+        plugin = { "pretty",
                 "html: target/site/cucumber-pretty",
                 "json: target/cucumber.json"},
-        snippets = SnippetType.CAMELCASE,
+        snippets = CucumberOptions.SnippetType.CAMELCASE,
         glue = "steps")
 
 /*

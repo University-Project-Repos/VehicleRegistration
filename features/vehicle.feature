@@ -1,146 +1,206 @@
 Feature: Vehicle Registration Management
 
-  Scenario: Successfully register a new vehicle to an owner's WoF app account
+  Scenario Outline: Successfully register a new vehicle to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    And the vehicle with plate "NEW123" is not in the database
-    When I register a vehicle with plate "NEW123", make "Toyota", model "Corolla", manufacture date "2010-01-01", address one "A", address two "Home", type "MA", and fuel type "petrol"
-    Then the vehicle with plate "NEW123" is now in the database
-    And a message "NEW123 successfully registered to one@test.com" is displayed on the screen
+    And I am logged in to my account with email "<email>" and password "<password>"
+    And the vehicle with plate "<plate>" is not in the database
+    When I register a vehicle with plate "<plate>", make "<make>", model "<model>", manufacture date "<manufactureDate>", address one "<addressOne>", address two "<addressTwo>", type "<vehicleType>", and fuel type "<fuelType>"
+    Then the vehicle with plate "<plate>" is now in the database
+    And a message "<message>" is displayed on the screen
+    Examples:
+      | email        | password | plate  | make   | model   | manufactureDate | addressOne | addressTwo | vehicleType | fuelType | message                                        |
+      | one@test.com | one      | NEW123 | Toyota | Corolla | 2010-01-01      | A          | Home       | MA          | petrol   | NEW123 successfully registered to one@test.com |
 
-  Scenario: Unsuccessfully register an existing vehicle registration to an owner's WoF app account
+  Scenario Outline: Unsuccessfully register an existing vehicle registration to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "four@test.com" and password "four"
-    And the vehicle with plate "NEW123" is in the database
-    When I register a vehicle with plate "NEW123", make "Mitsubishi", model "Gallant", manufacture date "1998-01-01", address one "Another", address two "Home", type "MA", and fuel type "diesel"
-    And a message "NEW123 is already registered to an account" is displayed on the screen
+    And I am logged in to my account with email "<email>" and password "<password>"
+    And the vehicle with plate "<plate>" is in the database
+    When I register a vehicle with plate "<plate>", make "<make>", model "<model>", manufacture date "<manufactureDate>", address one "<addressOne>", address two "<addressTwo>", type "<vehicleType>", and fuel type "<fuelType>"
+    And a message "<message>" is displayed on the screen
+    Examples:
+      | email        | password | plate  | make | model   | manufactureDate | addressOne | addressTwo | vehicleType | fuelType | message                                    |
+      | one@test.com | one      | ABC123 | FORD | MODEL T | 1970-01-01      | MICHIGAN   | USA        | MA          | OTHER    | ABC123 is already registered to an account |
 
-  Scenario: Unsuccessfully register a new vehicle to an owner's WoF app account
+  Scenario Outline: Unsuccessfully register a new vehicle to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    When I register a vehicle with plate "", make "Toyota", model "Corolla", manufacture date "2010-01-01", address one "A", address two "Home", type "MA", and fuel type "petrol"
-    Then the vehicle with plate "" is now not in the database
+    And I am logged in to my account with email "<email>" and password "<password>"
+    When I register a vehicle with plate "<plate>", make "<make>", model "<model>", manufacture date "<manufactureDate>", address one "<addressOne>", address two "<addressTwo>", type "<vehicleType>", and fuel type "<fuelType>"
+    Then the vehicle with plate "<plate>" is now not in the database
+    Examples:
+      | email        | password | plate | make   | model   | manufactureDate | addressOne | addressTwo | vehicleType | fuelType |
+      | one@test.com | one      |       | Toyota | Corolla | 2010-01-01      | A          | Home       | MA          | petrol   |
 
-  Scenario: Unsuccessfully register a new vehicle to an owner's WoF app account
+  Scenario Outline: Unsuccessfully register a new vehicle to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    When I register a vehicle with plate "NEW456", make "", model "Corolla", manufacture date "2010-01-01", address one "A", address two "Home", type "MA", and fuel type "petrol"
-    Then the vehicle with plate "NEW456" is now not in the database
+    And I am logged in to my account with email "<email>" and password "<password>"
+    When I register a vehicle with plate "<plate>", make "<make>", model "<model>", manufacture date "<manufactureDate>", address one "<addressOne>", address two "<addressTwo>", type "<vehicleType>", and fuel type "<fuelType>"
+    Then the vehicle with plate "<plate>" is now not in the database
+    Examples:
+      | email        | password | plate  | make | model   | manufactureDate | addressOne | addressTwo | vehicleType | fuelType |
+      | one@test.com | one      | NEW456 |      | Corolla | 2010-01-01      | A          | Home       | MA          | petrol   |
 
-  Scenario: Unsuccessfully register a new vehicle to an owner's WoF app account
+  Scenario Outline: Unsuccessfully register a new vehicle to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    When I register a vehicle with plate "NEW456", make "Toyota", model "", manufacture date "2010-01-01", address one "A", address two "Home", type "MA", and fuel type "petrol"
-    Then the vehicle with plate "NEW456" is now not in the database
+    And I am logged in to my account with email "<email>" and password "<password>"
+    When I register a vehicle with plate "<plate>", make "<make>", model "<model>", manufacture date "<manufactureDate>", address one "<addressOne>", address two "<addressTwo>", type "<vehicleType>", and fuel type "<fuelType>"
+    Then the vehicle with plate "<plate>" is now not in the database
+    Examples:
+      | email        | password | plate  | make   | model | manufactureDate | addressOne | addressTwo | vehicleType | fuelType |
+      | one@test.com | one      | NEW456 | Toyota |       | 2010-01-01      | A          | Home       | MA          | petrol   |
 
-  Scenario: Unsuccessfully register a new vehicle to an owner's WoF app account
+  Scenario Outline: Unsuccessfully register a new vehicle to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    When I register a vehicle with plate "NEW456", make "Toyota", model "Corolla", manufacture date "", address one "A", address two "Home", type "MA", and fuel type "petrol"
-    Then the vehicle with plate "NEW456" is now not in the database
+    And I am logged in to my account with email "<email>" and password "<password>"
+    When I register a vehicle with plate "<plate>", make "<make>", model "<model>", manufacture date "<manufactureDate>", address one "<addressOne>", address two "<addressTwo>", type "<vehicleType>", and fuel type "<fuelType>"
+    Then the vehicle with plate "<plate>" is now not in the database
+    Examples:
+      | email        | password | plate  | make   | model   | manufactureDate | addressOne | addressTwo | vehicleType | fuelType |
+      | one@test.com | one      | NEW456 | Toyota | Corolla |                 | A          | Home       | MA          | petrol   |
 
-  Scenario: Unsuccessfully register a new vehicle to an owner's WoF app account
+  Scenario Outline: Unsuccessfully register a new vehicle to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    When I register a vehicle with plate "NEW456", make "Toyota", model "Corolla", manufacture date "2010-01-01", address one "", address two "Home", type "MA", and fuel type "petrol"
-    Then the vehicle with plate "NEW456" is now not in the database
+    And I am logged in to my account with email "<email>" and password "<password>"
+    When I register a vehicle with plate "<plate>", make "<make>", model "<model>", manufacture date "<manufactureDate>", address one "<addressOne>", address two "<addressTwo>", type "<vehicleType>", and fuel type "<fuelType>"
+    Then the vehicle with plate "<plate>" is now not in the database
+    Examples:
+      | email        | password | plate  | make   | model   | manufactureDate | addressOne | addressTwo | vehicleType | fuelType |
+      | one@test.com | one      | NEW456 | Toyota | Corolla | 2010-01-01      |            | Home       | MA          | petrol   |
 
-  Scenario: Unsuccessfully register a new vehicle to an owner's WoF app account
+  Scenario Outline: Unsuccessfully register a new vehicle to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    When I register a vehicle with plate "NEW456", make "Toyota", model "Corolla", manufacture date "2010-01-01", address one "A", address two "", type "MA", and fuel type "petrol"
-    Then the vehicle with plate "NEW456" is now not in the database
+    And I am logged in to my account with email "<email>" and password "<password>"
+    When I register a vehicle with plate "<plate>", make "<make>", model "<model>", manufacture date "<manufactureDate>", address one "<addressOne>", address two "<addressTwo>", type "<vehicleType>", and fuel type "<fuelType>"
+    Then the vehicle with plate "<plate>" is now not in the database
+    Examples:
+      | email        | password | plate  | make   | model   | manufactureDate | addressOne | addressTwo | vehicleType | fuelType |
+      | one@test.com | one      | NEW456 | Toyota | Corolla | 2010-01-01      | A          |            | MA          | petrol   |
 
-  Scenario: Successfully list the information for an existing vehicle registration to an owner's WoF app account
+  Scenario Outline: Successfully list the information for an existing vehicle registration to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    And the vehicle with plate "NEW123" is in the database
-    When I list the information for vehicle "NEW123"
-    Then a message containing "NEW123", "TOYOTA", "COROLLA", "2010-01-01", "A", "HOME", "MA", "PETROL" is displayed on the screen
+    And I am logged in to my account with email "<email>" and password "<password>"
+    And the vehicle with plate "<plate>" is in the database
+    When I list the information for vehicle "<plate>"
+    Then a message containing "<plate>", "<make>", "<model>", "<manufactureDate>", "<addressOne>", "<addressTwo>", "<vehicleType>", "<fuelType>" is displayed on the screen
+    Examples:
+      | email        | password | plate  | make | model   | manufactureDate | addressOne | addressTwo | vehicleType | fuelType |
+      | one@test.com | one      | ABC123 | FORD | MODEL T | 1970-01-01      | MICHIGAN   | USA        | MA          | OTHER    |
 
-  Scenario: Successfully edit/update an existing vehicle registration to an owner's WoF app account
+  Scenario Outline: Successfully edit/update an existing vehicle registration make field to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    And the vehicle with plate "NEW123" is in the database
-    And the vehicle "NEW123" field "make" has existing value "TOYOTA" in the database
-    When I update/edit vehicle "NEW123" field "make" to the new value "Honda"
-    Then the vehicle "NEW123" field "make" will have value "HONDA" in the database
+    And I am logged in to my account with email "<email>" and password "<password>"
+    And the vehicle with plate "<plate>" is in the database
+    And the vehicle "<plate>" field "<field>" has existing value "<val>" in the database
+    When I update/edit vehicle "<plate>" field "<field>" to the new value "<val1>"
+    Then the vehicle "<plate>" field "<field>" will have value "<val2>" in the database
+    Examples:
+      | email        | password | plate  | field | val  | val1  | val2  |
+      | one@test.com | one      | ABC123 | make  | FORD | Honda | HONDA |
 
-  Scenario: Successfully edit/update an existing vehicle registration to an owner's WoF app account
+  Scenario Outline: Successfully edit/update an existing vehicle registration model field to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    And the vehicle with plate "NEW123" is in the database
-    And the vehicle "NEW123" field "model" has existing value "COROLLA" in the database
-    When I update/edit vehicle "NEW123" field "model" to the new value "Civic"
-    Then the vehicle "NEW123" field "model" will have value "CIVIC" in the database
+    And I am logged in to my account with email "<email>" and password "<password>"
+    And the vehicle with plate "<plate>" is in the database
+    And the vehicle "<plate>" field "<field>" has existing value "<val>" in the database
+    When I update/edit vehicle "<plate>" field "<field>" to the new value "<val1>"
+    Then the vehicle "<plate>" field "<field>" will have value "<val2>" in the database
+    Examples:
+      | email        | password | plate  | field | val     | val1  | val2  |
+      | one@test.com | one      | ABC123 | model | MODEL T | Civic | CIVIC |
 
-  Scenario: Successfully edit/update an existing vehicle registration to an owner's WoF app account
+  Scenario Outline: Successfully edit/update an existing vehicle registration manufacture date field to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    And the vehicle with plate "NEW123" is in the database
-    And the vehicle "NEW123" field "manufacture_date" has existing value "2010-01-01" in the database
-    When I update/edit vehicle "NEW123" field "manufacture-date" to the new value "2000-12-12"
-    Then the vehicle "NEW123" field "manufacture_date" will have value "2000-12-12" in the database
+    And I am logged in to my account with email "<email>" and password "<password>"
+    And the vehicle with plate "<plate>" is in the database
+    And the vehicle "<plate>" field "<field>" has existing value "<val>" in the database
+    When I update/edit vehicle "<plate>" field "<field1>" to the new value "<val1>"
+    Then the vehicle "<plate>" field "<field>" will have value "<val1>" in the database
+    Examples:
+      | email        | password | plate  | field            | val | field1           | val1       |
+      | one@test.com | one      | ABC123 | manufacture_date | 0   | manufacture-date | 2000-12-12 |
 
-  Scenario: Successfully edit/update an existing vehicle registration to an owner's WoF app account
+  Scenario Outline: Successfully edit/update an existing vehicle registration address one field to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    And the vehicle with plate "NEW123" is in the database
-    And the vehicle "NEW123" field "address_one" has existing value "A" in the database
-    When I update/edit vehicle "NEW123" field "address-one" to the new value "Different"
-    Then the vehicle "NEW123" field "address_one" will have value "DIFFERENT" in the database
+    And I am logged in to my account with email "<email>" and password "<password>"
+    And the vehicle with plate "<plate>" is in the database
+    And the vehicle "<plate>" field "<field>" has existing value "<val>" in the database
+    When I update/edit vehicle "<plate>" field "<field1>" to the new value "<val1>"
+    Then the vehicle "<plate>" field "<field>" will have value "<val2>" in the database
+    Examples:
+      | email        | password | plate  | field       | val      | field1      | val1      | val2      |
+      | one@test.com | one      | ABC123 | address_one | MICHIGAN | address-one | Different | DIFFERENT |
 
-  Scenario: Successfully edit/update an existing vehicle registration to an owner's WoF app account
+  Scenario Outline: Successfully edit/update an existing vehicle registration address two field to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    And the vehicle with plate "NEW123" is in the database
-    And the vehicle "NEW123" field "address_two" has existing value "HOME" in the database
-    When I update/edit vehicle "NEW123" field "address-two" to the new value "Place"
-    Then the vehicle "NEW123" field "address_two" will have value "PLACE" in the database
+    And I am logged in to my account with email "<email>" and password "<password>"
+    And the vehicle with plate "<plate>" is in the database
+    And the vehicle "<plate>" field "<field>" has existing value "<val>" in the database
+    When I update/edit vehicle "<plate>" field "<field1>" to the new value "<val1>"
+    Then the vehicle "<plate>" field "<field>" will have value "<val2>" in the database
+    Examples:
+      | email        | password | plate  | field       | val | field1      | val1  | val2  |
+      | one@test.com | one      | ABC123 | address_two | USA | address-two | Place | PLACE |
 
-  Scenario: Successfully edit/update an existing vehicle registration to an owner's WoF app account
+  Scenario Outline: Successfully edit/update an existing vehicle registration vehicle type field to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    And the vehicle with plate "NEW123" is in the database
-    And the vehicle "NEW123" field "vehicle_type" has existing value "MA" in the database
-    When I update/edit vehicle "NEW123" field "type" to the new value "O"
-    Then the vehicle "NEW123" field "vehicle_type" will have value "O" in the database
+    And I am logged in to my account with email "<email>" and password "<password>"
+    And the vehicle with plate "<plate>" is in the database
+    And the vehicle "<plate>" field "<field>" has existing value "<val>" in the database
+    When I update/edit vehicle "<plate>" field "<field1>" to the new value "<val1>"
+    Then the vehicle "<plate>" field "<field>" will have value "<val1>" in the database
+    Examples:
+      | email        | password | plate  | field        | val | field1 | val1 |
+      | one@test.com | one      | ABC123 | vehicle_type | MA  | type   | O    |
 
-  Scenario: Successfully edit/update an existing vehicle registration to an owner's WoF app account
+  Scenario Outline: Successfully edit/update an existing vehicle registration fuel type field to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    And the vehicle with plate "NEW123" is in the database
-    And the vehicle "NEW123" field "fuel_type" has existing value "PETROL" in the database
-    When I update/edit vehicle "NEW123" field "fuel" to the new value "other"
-    Then the vehicle "NEW123" field "fuel_type" will have value "OTHER" in the database
+    And I am logged in to my account with email "<email>" and password "<password>"
+    And the vehicle with plate "<plate>" is in the database
+    And the vehicle "<plate>" field "<field>" has existing value "<val>" in the database
+    When I update/edit vehicle "<plate>" field "<field1>" to the new value "<val1>"
+    Then the vehicle "<plate>" field "<field>" will have value "<val2>" in the database
+    Examples:
+      | email        | password | plate  | field     | val   | field1 | val1   | val2   |
+      | one@test.com | one      | ABC123 | fuel_type | OTHER | fuel   | petrol | PETROL |
 
-  Scenario: Unsuccessfully edit/update an existing vehicle registration to an owner's WoF app account
+  Scenario Outline: Unsuccessfully edit/update an existing vehicle registration plate field to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    And the vehicle with plate "NEW123" is in the database
-    And the vehicle "NEW123" field "plate" has existing value "NEW123" in the database
-    When I update/edit vehicle "NEW123" field "plate" to the new value "NEW789"
-    Then the vehicle "NEW123" field "plate" will have value "NEW123" in the database
+    And I am logged in to my account with email "<email>" and password "<password>"
+    And the vehicle with plate "<plate>" is in the database
+    And the vehicle "<plate>" field "<field>" has existing value "<val>" in the database
+    When I update/edit vehicle "<plate>" field "<field>" to the new value "<val1>"
+    Then the vehicle "<plate>" field "<field>" will have value "<val>" in the database
+    Examples:
+      | email        | password | plate  | field | val    | val1   |
+      | one@test.com | one      | ABC123 | plate | ABC123 | NEW789 |
 
-  Scenario: Successfully remove an existing vehicle registration to an owner's WoF app account
+  Scenario Outline: Successfully remove an existing vehicle registration to an owner's WoF app account
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "one@test.com" and password "two"
-    And the vehicle with plate "NEW123" is in the database
-    When I remove the vehicle "NEW123"
-    Then the vehicle with plate "NEW123" is now not in the database
+    And I am logged in to my account with email "<email>" and password "<password>"
+    And the vehicle with plate "<plate>" is in the database
+    When I remove the vehicle "<plate>"
+    Then the vehicle with plate "<plate>" is now not in the database
+    Examples:
+      | email        | password | plate  |
+      | one@test.com | one      | ABC123 |
 
-  Scenario: Successfully register a vehicle to an owner's WoF app account wth a plate from a removed vehicle
+  Scenario Outline: Successfully register a vehicle to an owner's WoF app account wth a plate from a removed vehicle
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "four@test.com" and password "four"
-    And the vehicle with plate "NEW123" is not in the database
-    When I register a vehicle with plate "NEW123", make "Toyota", model "Corolla", manufacture date "2010-01-01", address one "A", address two "Home", type "MA", and fuel type "petrol"
-    Then the vehicle with plate "NEW123" is now in the database
-    And a message "NEW123 successfully registered to four@test.com" is displayed on the screen
+    And I am logged in to my account with email "<email>" and password "<password>"
+    And the vehicle with plate "<plate>" is not in the database
+    When I register a vehicle with plate "<plate>", make "<make>", model "<model>", manufacture date "<manufactureDate>", address one "<addressOne>", address two "<addressTwo>", type "<vehicleType>", and fuel type "<fuelType>"
+    Then the vehicle with plate "<plate>" is now in the database
+    And a message "<message>" is displayed on the screen
+    Examples:
+      | email         | password | plate  | make   | model   | manufactureDate | addressOne | addressTwo | vehicleType | fuelType | message                                         |
+      | four@test.com | four     | NEW123 | Toyota | Corolla | 2010-01-01      | A          | Home       | MA          | petrol   | NEW123 successfully registered to four@test.com |
 
-  Scenario: Successfully remove existing vehicle registration(s) when the owner's WoF app account is removed
+  Scenario Outline: Successfully remove existing vehicle registration(s) when the owner's WoF app account is removed
     Given I am connected to the WoF app database
-    And I am logged in to my account with email "four@test.com" and password "four"
-    And the vehicle with plate "NEW123" is in the database
+    And I am logged in to my account with email "<email>" and password "<password>"
+    And the vehicle with plate "<plate>" is in the database
     When I remove the registered vehicle owner account
-    Then the owner with email "four@test.com" must not be in the database
-    And the vehicle with plate "NEW123" is now not in the database
+    Then the owner with email "<email>" must not be in the database
+    And the vehicle with plate "<plate>" is now not in the database
+    Examples:
+      | email        | password | plate  |
+      | one@test.com | one      | ABC123 |

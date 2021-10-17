@@ -1,9 +1,13 @@
 package steps;
 
 import WoF.controller.cli.VehicleCLITest;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import java.io.FileNotFoundException;
+import java.sql.SQLException;
 
 /**
  * Acceptance testing for WoF app vehicle registration
@@ -12,6 +16,16 @@ import cucumber.api.java.en.When;
 public class VehicleTestSteps {
 
     private final VehicleCLITest vehicleTest = new VehicleCLITest();
+
+    @Before
+    public void setUp() throws SQLException, FileNotFoundException {
+        vehicleTest.setUp();
+    }
+
+    @After
+    public void tearDown() throws SQLException {
+        vehicleTest.tearDown();
+    }
 
     /**
      * Checks that a message is displayed on the screen
