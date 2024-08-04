@@ -3,7 +3,7 @@
 Behaviour-driven developed (BDD) CLI and GUI application for registering vehicles and owners
 for Vehicle Testing New Zealand (VTNZ) Warrant of Fitness (WoF) test appointments.
 
-Developed in limited time for infinite good reasons using a local SQLite database.
+Developed with a local SQLite database in limited time for infinite good reasons.
 GUI is included later when refactoring from Java 8 to 16 given automated
 [user-story acceptance](https://github.com/R055A/VehicleRegistration/blob/master/doc/UserStoryAcceptanceCriteria.pdf) 
 [testing with Cucumber and Gherkin](https://github.com/R055A/VehicleRegistration/blob/master/features/) 
@@ -13,6 +13,8 @@ A user of the vehicle WoF registration app can:
 - register, login, logout, edit and remove a user account
 - register, edit, and remove their vehicle(s) from a user account
 - edit history for a vehicle registration
+
+![WoF App GUI](https://github.com/user-attachments/assets/3b83c0c8-f8f8-43c0-8a43-64e29cdb3a7d)
 
 There are two existing vehicle owner registrations in the DB sample:
 
