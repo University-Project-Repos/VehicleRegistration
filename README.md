@@ -9,6 +9,8 @@ GUI is included later when refactoring from Java 8 to 16 given automated
 [testing with Cucumber and Gherkin](https://github.com/R055A/VehicleRegistration/blob/master/features/) 
 is being assessed, with all test cases passing.
 
+![gui](https://github.com/user-attachments/assets/3b7c5354-966c-49d0-80dd-dd3d0cc55081)
+
 A user of the vehicle WoF registration app can:
 - register, login, logout, edit and remove a user account
 - register, edit, and remove their vehicle(s) from a user account
