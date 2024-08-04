@@ -5,8 +5,8 @@ for Vehicle Testing New Zealand (VTNZ) Warrant of Fitness (WoF) test appointment
 
 Developed with a local SQLite database in limited time for infinite good reasons.
 GUI is included later when migrating from Java 8 to 16 given automated
-[user-story acceptance](https://github.com/R055A/VehicleRegistration/blob/master/doc/UserStoryAcceptanceCriteria.pdf) 
-[testing with Cucumber and Gherkin](https://github.com/R055A/VehicleRegistration/blob/master/features/) 
+[user-story acceptance](./doc/UserStoryAcceptanceCriteria.pdf) 
+[testing with Cucumber and Gherkin](./features/) 
 is being assessed, with all test cases passing.
 
 ![gui](https://github.com/user-attachments/assets/3b7c5354-966c-49d0-80dd-dd3d0cc55081)
