@@ -16,8 +16,6 @@ A user of the vehicle WoF registration app can:
 - register, edit, and remove their vehicle(s) from a user account
 - edit history for a vehicle registration
 
-![WoF App GUI](https://github.com/user-attachments/assets/3b83c0c8-f8f8-43c0-8a43-64e29cdb3a7d)
-
 There are two existing vehicle owner registrations in the DB sample:
 
 ```
